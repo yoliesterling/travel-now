@@ -5,6 +5,15 @@ const logger = require('morgan');
 
 const app = express();
 
+require('dotenv').config();
+
+app.get('/', (req, res) => {
+    res.send(process.env.DATABASE_URL);
+})
+
+// connect to MongoDB with mongoose
+require('./config/database');
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
