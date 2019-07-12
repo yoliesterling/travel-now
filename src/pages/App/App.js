@@ -6,6 +6,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import SettingsPage from '../SettingsPage/SettingsPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
+import CreatePage from '../CreatePage/CreatePage';
 import tokenService from '../../utils/tokenService';
 
 
@@ -62,6 +63,12 @@ class App extends Component {
               handleSignupOrLogin={this.handleSignupOrLogin}
             />
           }/>
+          <Route exact path='/create' render={props => 
+            <CreatePage
+              {...props} 
+            />
+          }/>
+
             :
               <Redirect to='/login'/>
           }/>
