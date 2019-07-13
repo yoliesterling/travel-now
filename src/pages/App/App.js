@@ -7,7 +7,11 @@ import SettingsPage from '../SettingsPage/SettingsPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
 import CreatePage from '../CreatePage/CreatePage';
-import tokenService from '../../utils/tokenService';
+import EditPage from '../EditPage/EditPage';
+import Dashboard from '../Dashboard/Dashboard';
+import NavBar from '../../components/NavBar/NavBar';
+import TripDetails from '../TripDetails/TripDetails';
+// import tokenService from '../../utils/tokenService';
 
 
 
@@ -39,6 +43,7 @@ class App extends Component {
     return (
       <div>
         <header className='header-footer'></header>
+        <NavBar />
         <Switch>
           <Route exact path='/' render={() =>
             <MainPage
@@ -65,6 +70,21 @@ class App extends Component {
           }/>
           <Route exact path='/create' render={props => 
             <CreatePage
+              {...props} 
+            />
+          }/>
+          <Route exact path='/dashboard' render={props => 
+            <Dashboard
+              {...props} 
+            />
+          }/>
+          <Route exact path='/edit' render={props => 
+            <EditPage
+              {...props} 
+            />
+          }/>
+          <Route exact path='/tripdetails' render={props => 
+            <TripDetails
               {...props} 
             />
           }/>
