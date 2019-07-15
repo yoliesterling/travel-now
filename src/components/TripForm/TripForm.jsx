@@ -53,7 +53,7 @@ class TripForm extends Component {
     render () {
         return (
             <form>
-                <label>Trip Name</label>
+                <label>Trip</label>
                 <TextInput name='tripName'
                     value={this.state.formControls.tripName.value}
                     onChange={this.changeHandler}

@@ -7,9 +7,7 @@ const app = express();
 
 require('dotenv').config();
 
-app.get('/', (req, res) => {
-    res.send(process.env.DATABASE_URL);
-})
+
 
 // connect to MongoDB with mongoose
 require('./config/database');
