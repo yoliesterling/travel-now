@@ -26,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // Put API routes here, before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
+app.use('/trips', require('./routes/api/trips'));
 
 
 // The following "catch all" route (note the *)is necessary
@@ -34,9 +35,8 @@ app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 
-  const tripsRouter = require('./routes/api/trips');
+;
   
-  app.use('/trips', tripsRouter);
  
 
 

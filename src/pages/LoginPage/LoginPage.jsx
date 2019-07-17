@@ -23,8 +23,8 @@ class LoginPage extends Component {
       await userService.login(this.state);
       // Let <App> know a user has signed up!
       this.props.handleSignupOrLogin();
-      // Successfully signed up - show GamePage
-      this.props.history.push('/');
+      // Successfully signed up
+      this.props.history.push('/trips');
     } catch (err) {
       // Use a modal or toast in your apps instead of alert
       alert('Invalid Credentials!');

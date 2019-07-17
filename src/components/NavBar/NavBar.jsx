@@ -1,38 +1,30 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import { Link } from 'react-router-dom';
+import './NavBar.css';
 
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-  },
-});
-
-export default function CenteredTabs() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  function handleChange(event, newValue) {
-    setValue(newValue);
-  }
+const NavBar = props => {
+  let nav = props.user ?
+    <div>
+      <Link to='/create' className='NavBar-link'>Create a Trip</Link>
+      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <Link to='/trips' className='NavBar-link'>Trips</Link>
+      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <Link to='' className='NavBar-link' onClick={props.handleLogout}>LOG OUT</Link>
+      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
+    </div>
+    :
+    <div>
+      <Link to='/login' className='NavBar-link'>LOG IN</Link>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
+    </div>;
 
   return (
-    <Paper className={classes.root}>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        indicatorColor="primary"
-        textColor="primary"
-        centered
-      >
-        <Tab label="Sign Up" component={Link} to='/signup' />
-        <Tab label="Log In" component={Link} to='/login' />
-        <Tab label="Create Trip" component={Link} to='/create' />
-      </Tabs>
-    </Paper>
+    <div className='NavBar'>
+      {nav}
+    </div>
   );
-}
+};
 
+export default NavBar;

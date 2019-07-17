@@ -16,10 +16,11 @@ const Trip = props => (
 export default class TripsList extends Component {
   constructor(props) {
     super(props);
+    this.state = {trips: []};
 
     this.deleteTrip = this.deleteTrip.bind(this)
+    this.tripList = this.tripList.bind(this)
 
-    this.state = {trips: []};
   }
 
   componentDidMount() {
