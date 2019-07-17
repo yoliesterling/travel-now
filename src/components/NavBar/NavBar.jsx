@@ -28,9 +28,9 @@ export default function CenteredTabs() {
         textColor="primary"
         centered
       >
-        <Tab label="About" component={Link} to='/about' />
         <Tab label="Sign Up" component={Link} to='/signup' />
         <Tab label="Log In" component={Link} to='/login' />
+        <Tab label="Create Trip" component={Link} to='/create' />
       </Tabs>
     </Paper>
   );
