@@ -3,6 +3,7 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
+
 export default class CreateTrip extends Component {
   constructor(props) {
     super(props);
@@ -17,22 +18,7 @@ export default class CreateTrip extends Component {
       date: new Date(),
     }
   }
-
-  // componentDidMount() {
-  //   axios.get('http://localhost:3001/users/')
-  //     .then(response => {
-  //       if (response.data.length > 0) {
-  //         this.setState({
-  //           users: response.data.map(user => user.username),
-  //           username: response.data[0].username
-  //         })
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     })
-
-  // }
+  
  onChange(e) {
    this.setState({[e.target.name]: e.target.value});
  }
@@ -56,8 +42,6 @@ export default class CreateTrip extends Component {
 
     axios.post('http://localhost:3001/trips/add', trip)
       .then(res => console.log(res.data));
-
-    // window.location = '/';
   }
 
   render() {
@@ -103,3 +87,8 @@ export default class CreateTrip extends Component {
     )
   }
 }
+
+
+
+
+
